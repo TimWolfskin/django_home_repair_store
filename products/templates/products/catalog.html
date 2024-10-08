@@ -118,19 +118,22 @@
               <div class="product-item__wrapper-box">
                 <div class="product-item__box">
                   <div class="product-item__info">
-                    {% comment %} <h5 class="product__category"><a href="">324324</a></h5>
-                    <div class="product_id">id: <span>2342342</span></div> {% endcomment %}
+                    <h5 class="product__category"><a href="">{{ product.category }}</a></h5>
                     <div style="display: none;" class="">  </div>
+                    <div class="product_id">id: <span> {{ product.display_id }} </span></div> 
                   </div>
                   <a href=""><h4 class="product__title"> 
                     {{ product.name }}
                   </h4>
                 </a>
-                  <div class="product__price__container">
-                      <div class="product__new-price">$ {{ product.price }} </div>
-                      {% comment %} <div class="product-item__old-price">$3242 </div>
-                      <div class="product__new-price">$34234 </div> {% endcomment %}
-                  </div>
+                <div class="product__price__container">
+                  {% if product.discount %}
+                    <div class="product__new-price">$ {{ product.sell_price }}</div>
+                    <div class="product-item__old-price">$ {{ product.price }}</div>
+                  {% else %}
+                    <div class="product__new-price">$ {{ product.price }}</div>
+                  {% endif %}
+                </div>
                 </div>
                 <div class="product-item__content-box">
                   <div class="product__btns-container">

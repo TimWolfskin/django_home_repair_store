@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load producttags %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +22,7 @@
             <nav class="menu">
               <ul class="menu__list">
                 <li class="menu__list-item">
-                  <a class="menu__list-link" href=" {% url "main:index" %} ">Home</a>
+                  <a class="menu__list-link" href=" {% url "main:index" %}">Home</a>
                 </li>
                 <li class="menu__list-item menu__list-item--dropdown">
                   <a class="menu__list-link menu__list-link--dropdown__products" href="#">
@@ -30,12 +32,13 @@
                       </svg>
                   </a>
                   <ul class="submenu">
+                    {% tag_categories as categories %}
                     {% for category in categories %}
-                      <li class="submenu__item">
-                          <a class="submenu__link" href=""> {{ category.name }} </a>
-                      </li>   
-                      {% endfor %}                                     
-                  </ul>
+                    <li class="submenu__item">
+                        <a class="submenu__link" href=" {% url "catalog:index"%} "> {{category.name}} </a>
+                    </li>                                        
+                    {% endfor %}
+                </ul>
               </li>
                 <li class="menu__list-item">
                   <a class="menu__list-link" href=" {% url "about:about" %} ">About</a>

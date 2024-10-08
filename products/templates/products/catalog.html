@@ -1,0 +1,169 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block block_content %}
+<section class="top">
+  <div class="top__container" style="background-image: url('');">
+      <div class="container">
+          <h2 class="top__title title">Shop page</h2>
+          {% comment %} <div class="breadcrumbs">
+              <ul class="breadcrumbs__list">
+                  <li class="breadcrumbs__item">
+                      <a class="breadcrumbs__link" href="#">
+                          Home
+                      </a>
+                  </li>
+                  <li class="breadcrumbs__item">
+                      <a class="breadcrumbs__link" href="#">
+                          Shop page
+                      </a>
+                  </li>
+              </ul>
+          </div> {% endcomment %}
+      </div>
+  </div>
+</section>
+  <section class="shop">
+    <div class="container">
+      <div class="shop__inner">
+        <div class="shop__filters filter">
+          <div class="filter__item">
+            <form action="" method="get" class="" data-bs-theme="dark">
+              <div class="">
+                <input class="" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" >
+                <input type="hidden" name="q" value="" /> 
+                <label class="" for="flexCheckDefault">Products on sale</label>
+              </div>
+              <button class="filter-btn" type="submit" class="">Apply</button>
+            </form>
+          </div>
+          <div class="filter__item">
+            <div class="">
+              <form action="" method="get" class="" data-bs-theme="dark">
+                <h5 class="filter__item-title">FILTER BY PRICE</h5>
+                <div class="">
+                  <input class="" type="radio" name="order_by" id="flexRadioDefault1" value="default"  />
+                  <label class="" for="flexRadioDefault1">Default</label>
+                </div>
+                <div class="">
+                  <input class="" type="radio" name="order_by" id="flexRadioDefault2" value="price" />
+                  <label class="" for="flexRadioDefault2">From cheap to expensive</label>
+                </div>
+                <div class="">
+                  <input class="" type="radio" name="order_by" id="flexRadioDefault3" value="-price" />
+                  <label class="" for="flexRadioDefault3">From expensive to cheap</label>
+                </div>
+                <button class="filter-btn" type="submit" class="">Apply</button>
+              </form>
+            </div>
+          </div>
+            <div class="filter__item">
+              <div class="">
+                <form action="" method="get" class="" data-bs-theme="dark">
+                  <h5 class="filter__item-title">FILTER BY TYPE</h5>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault1" value="default"  />
+                    <label class="" for="flexRadioDefault1">Default</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault2" value="collars_harness" />
+                    <label class="" for="flexRadioDefault2">Collars and Harness</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault3" value="food" />
+                    <label class="" for="flexRadioDefault3">Food</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault4" value="clothes" />
+                    <label class="" for="flexRadioDefault3">Clothes</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault5" value="beds"  />
+                    <label class="" for="flexRadioDefault3">Beds</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault6" value="vitamins"  />
+                    <label class="" for="flexRadioDefault3">Vitamins</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault7" value="grooming"  />
+                    <label class="" for="flexRadioDefault3">Grooming</label>
+                  </div>
+                  <div class="">
+                    <input class="" type="radio" name="on_type" id="RadioDefault8" value="dry_food" />
+                    <label class="" for="flexRadioDefault3">Dry Food</label>
+                  </div>
+
+                  
+                  <button class="filter-btn" type="submit" class="">Apply</button>
+                </form>
+              </div>
+          </div>
+
+
+
+        </div>
+        <div class="shop-content">
+          <div class="shop-content__inner">
+            {% comment %} <h3 class="">Search results for your query  </h3> {% endcomment %}
+            {% comment %} product card {% endcomment %}
+            {% for product in products %}
+            <div class="product">
+              <div class="product__image">
+                <a href="">
+                  <img class="product-item__images" src=" {{ product.image.url }} " alt=" " />
+                </a>
+              </div>
+              <div class="product-item__wrapper-box">
+                <div class="product-item__box">
+                  <div class="product-item__info">
+                    {% comment %} <h5 class="product__category"><a href="">324324</a></h5>
+                    <div class="product_id">id: <span>2342342</span></div> {% endcomment %}
+                    <div style="display: none;" class="">  </div>
+                  </div>
+                  <a href=""><h4 class="product__title"> 
+                    {{ product.name }}
+                  </h4>
+                </a>
+                  <div class="product__price__container">
+                      <div class="product__new-price">$ {{ product.price }} </div>
+                      {% comment %} <div class="product-item__old-price">$3242 </div>
+                      <div class="product__new-price">$34234 </div> {% endcomment %}
+                  </div>
+                </div>
+                <div class="product-item__content-box">
+                  <div class="product__btns-container">
+
+                      <a class="product__cart-btn btn add-to-cart" href="">Buy Now</a>
+                      <a class="product__wishlist-btn btn add-to-wishlist" href="">
+                      <?xml version="1.0" encoding="utf-8"?>
+                      <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+              {% comment %} end product card {% endcomment %}
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <a class="pagination__prev"
+          href="#"> Previus
+        </a>
+        <ul class="pagination__list">
+              <li class="pagination__item">
+                <a class="pagination__link"></a>
+              </li>
+        </ul>
+        <a class="pagination__next"
+          href="#"> Next
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" href="{% static 'deps/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href=" {% static 'deps/css/reset.css' %} " />
+    <link rel="stylesheet" href=" {% static 'deps/css/style.css' %} " />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__inner">
+            <a class="logo" href=" {% url "main:index" %} "><img src="" alt="" /></a>
+            <nav class="menu">
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href=" {% url "main:index" %} ">Home</a>
+                </li>
+                <li class="menu__list-item menu__list-item--dropdown">
+                  <a class="menu__list-link menu__list-link--dropdown__products" href="#">
+                      Products
+                      <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#000"/>
+                      </svg>
+                  </a>
+                  <ul class="submenu">
+                    {% for category in categories %}
+                      <li class="submenu__item">
+                          <a class="submenu__link" href=""> {{ category.name }} </a>
+                      </li>   
+                      {% endfor %}                                     
+                  </ul>
+              </li>
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href=" {% url "about:about" %} ">About</a>
+                </li>
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href=" {% url "about:about" %} ">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="user-nav">
+              <form class="form" role="search" action="" method="get">
+                <input class="form__input" role="search" type="search" placeholder="Search" aria-label="Search" name="q" />
+                <button class="form__input-btn" type="submit"><img src=" {% static 'deps/images/icons/search.svg' %} " alt="" /></button>
+              </form>
+              <a href="#"><img src=" {% static 'deps/images/icons/cart.svg' %} " alt="" /></a>
+
+                <li class="menu__list-item menu__list-item--dropdown">
+                  <a class="menu__list-link menu__list-link--dropdown__user" href="">
+                      <img src="{% static 'deps/images/icons/user.svg' %}" alt="">
+                  </a>
+                  <ul class="submenu">
+                          <li class="submenu__item">
+                              <a class="submenu__link" href="">Login</a>
+                          </li>
+
+
+              <li class="submenu__item"><a class="submenu__link" href="">Personal Account</a></li>
+                  <li class="submenu__item"><a class="submenu__link" href="{% url "admin:index" %}">Admin Panel</a></li>
+              <li class="submenu__item"><a class="submenu__link" href="">Logout</a></li>
+          </li>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        {% block block_content %}
+        {% endblock %}
+      </main>
+
+      <footer class="footer">
+        <div class="footer__content">
+          <div class="container">
+            <div class="footer__inner">
+              <div class="footer__info">
+                <h6 class="footer__info-title">Contact Us</h6>
+                <p class="footer__info-text">Keffiyeh poutine etsy, paleo cray put a bird on it microdosing schlitz you probably occupy</p>
+                <a class="info-email" href="mailto:ouremailaddress@email.com">ouremailaddress@email.com</a>
+                <form class="footer__form">
+                  <input class="footer__form-input" type="email" placeholder="Subscribe by email" />
+                  <button class="footer__form-button" type="submit">Send</button>
+                </form>
+              </div>
+              <ul class="footer__social">
+                <li class="footer__social-item">
+                  <a class="footer__social-link footer__social-link--facebook" href="#">Facebook</a>
+                </li>
+                <li class="footer__social-item">
+                  <a class="footer__social-link footer__social-link--instagram" href="#">Instagram</a>
+                </li>
+                <li class="footer__social-item">
+                  <a class="footer__social-link footer__social-link--pinterest" href="#">Pinterest</a>
+                </li>
+                <li class="footer__social-item">
+                  <a class="footer__social-link footer__social-link--whatsapp" href="#">WhatsApp</a>
+                </li>
+                <li class="footer__social-item">
+                  <a class="footer__social-link footer__social-link--youtube" href="#">Youtube</a>
+                </li>
+              </ul>
+              <nav class="footer__menu">
+                <ul class="footer__menu-list">
+                  <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="#">Delivery</a>
+                  </li>
+                  <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="#">FAQ</a>
+                  </li>
+                  <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="#">HELP</a>
+                  </li>
+                  <li class="footer__menu-item">
+                    <a class="footer__menu-link" href="#">More About Us</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src=" {% static 'js/main.js' %} "></script>
+  </body>
+</html>
